@@ -21,13 +21,18 @@ class MasterController extends Controller
         $phone = Setting::where('type', 'phone')->first();
         $address = Setting::where('type', 'address')->first();
         $business_hours = Setting::where('type', 'business_hours')->first();
+        $facebook = Setting::where('type', 'facebook')->first();
+        $instagram = Setting::where('type', 'instagram')->first();
         
         return view('master_setting.index', compact(
             'whatsapp',
             'telegram',
             'phone',
             'address',
-            'business_hours'
+            'business_hours',
+            'facebook',
+            'instagram'
+
         )); 
 
     }
@@ -40,6 +45,9 @@ class MasterController extends Controller
             'phone' => 'nullable|string|max:255',
             'address' => 'nullable|string|max:1000',
             'business_hours' => 'nullable|string|max:255',
+            'facebook' => 'nullable|string|max:500',
+            'instagram' => 'nullable|string|max:500',
+            
         ]);
 
         Setting::updateOrCreate(
@@ -65,7 +73,17 @@ class MasterController extends Controller
             ['type' => 'business_hours'],
             ['value' => $request->business_hours]
         );
+
+        Setting::updateOrCreate(
+            ['type' => 'facebook'],
+            ['value' => $request->facebook]
+        );
         
+        Setting::updateOrCreate(
+            ['type' => 'instagram'],
+            ['value' => $request->instagram]
+        );
+
         return redirect()
             ->back()
             ->withSuccess('Master setting updated successfully');

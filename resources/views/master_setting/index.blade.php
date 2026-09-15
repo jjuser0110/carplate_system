@@ -60,6 +60,26 @@
                         value="{{ old('business_hours', $business_hours->value ?? '') }}"
                         placeholder="Mon – Sat, 9.30am – 6.30pm">
                 </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Facebook URL</label>
+                    <input
+                        type="url"
+                        name="facebook"
+                        class="form-control"
+                        value="{{ old('facebook', $facebook->value ?? '') }}"
+                        placeholder="https://www.facebook.com/yourpage">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Instagram URL</label>
+                    <input
+                        type="url"
+                        name="instagram"
+                        class="form-control"
+                        value="{{ old('instagram', $instagram->value ?? '') }}"
+                        placeholder="https://www.instagram.com/yourpage">
+                </div>
                 <hr>
                 <div class="col-12">
                     <button type="submit" name="submitButton" class="btn btn-primary">Submit</button>
