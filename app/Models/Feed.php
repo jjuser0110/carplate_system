@@ -6,20 +6,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class Feed extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
     protected $fillable = [
-        'category_name',
+        'url',
+        'title',
         'description',
         'arrangement',
         'is_active',
     ];
 
-    public function carplateNumbers()
+    public function coverPhoto()
     {
-        return $this->hasMany(CarplateNumber::class, 'category_id');
+        return $this->morphOne('App\Models\FileAttachment', 'content')->where('type', 'cover_photo');
     }
 }

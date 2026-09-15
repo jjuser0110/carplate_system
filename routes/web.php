@@ -13,6 +13,9 @@ use App\Http\Controllers\PosController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/carplate', function () {
+    return view('carplate');
+});
 
 Route::get('/', function () {
     return redirect()->route('login');

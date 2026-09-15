@@ -6,20 +6,25 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class Tag extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
     protected $fillable = [
-        'category_name',
-        'description',
+        'tag_name',
+        'color',
         'arrangement',
         'is_active',
     ];
 
     public function carplateNumbers()
     {
-        return $this->hasMany(CarplateNumber::class, 'category_id');
+        return $this->belongsToMany(
+            CarplateNumber::class,
+            'carplate_tag',
+            'tag_id',
+            'carplate_number_id'
+        );
     }
 }

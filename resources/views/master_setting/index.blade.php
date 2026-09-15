@@ -42,6 +42,24 @@
                     value="{{ $phone ? $phone->value : '' }}" 
                     />
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Address</label>
+                    <textarea
+                        name="address"
+                        class="form-control"
+                        rows="3"
+                        placeholder="Enter business address">{{ old('address', $address->value ?? '') }}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Business Hours</label>
+                    <input
+                        type="text"
+                        name="business_hours"
+                        class="form-control"
+                        value="{{ old('business_hours', $business_hours->value ?? '') }}"
+                        placeholder="Mon – Sat, 9.30am – 6.30pm">
+                </div>
                 <hr>
                 <div class="col-12">
                     <button type="submit" name="submitButton" class="btn btn-primary">Submit</button>

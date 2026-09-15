@@ -26,6 +26,24 @@ $currentRoute = request()->route()->getName();
                 <div>Category</div>
             </a>
         </li>
+        <li class="menu-item {{ Str::contains($currentRoute, 'carplate_number.index') ? 'active' : ''}}">
+            <a href="{{ route('carplate_number.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
+                <div>Carplate Number</div>
+            </a>
+        </li>
+        <li class="menu-item {{ Str::contains($currentRoute, 'feeds.index') ? 'active' : ''}}">
+            <a href="{{ route('feeds.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
+                <div>Feeds</div>
+            </a>
+        </li>
+        <li class="menu-item {{ Str::contains($currentRoute, 'tag.index') ? 'active' : ''}}">
+            <a href="{{ route('tag.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
+                <div>Tag</div>
+            </a>
+        </li>
         <li class="menu-item {{ Str::contains($currentRoute, 'master_setting.index') ? 'active' : ''}}">
             <a href="{{ route('master_setting.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-spreadsheet"></i>

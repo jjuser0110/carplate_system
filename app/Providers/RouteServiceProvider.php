@@ -45,14 +45,28 @@ class RouteServiceProvider extends ServiceProvider
     }
 
     protected function mapWebRoutes()
-    {  
+    {
         Route::group([
             'middleware' => 'web',
             'namespace' => $this->namespace
         ], function ($router) {
-            $iterator = new Iterator(new DirectoryIterator(base_path('routes')), Iterator::SELF_FIRST);
+            $iterator = new Iterator(
+                new DirectoryIterator(base_path('routes')),
+                Iterator::SELF_FIRST
+            );
+    
             foreach ($iterator as $file) {
                 if ($file->isFile()) {
+    
+                    if (in_array($file->getFilename(), [
+                        'api.php',
+                        'banner.php',
+                        'product.php',
+                        'role.php',
+                    ])) {
+                        continue;
+                    }
+    
                     require_once $file->getPathname();
                 }
             }
