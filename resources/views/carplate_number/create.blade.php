@@ -118,7 +118,32 @@
                                 Hold Ctrl (Windows) or Command (Mac) to select multiple tags.
                             </small>
                         </div>
+                        {{-- Image --}}
+                        <div class="col-md-6">
+                            <label class="form-label" for="image">
+                                Car Image
+                            </label>
 
+                            <input
+                                type="file"
+                                class="form-control"
+                                id="image"
+                                name="image"
+                                accept="image/*"
+                            />
+
+                            @if(isset($carplateNumber) && $carplateNumber->image)
+                                <div class="mt-2">
+                                    <img
+                                        src="{{ asset('storage/' . $carplateNumber->image) }}"
+                                        alt="Current car image"
+                                        style="max-width: 200px; max-height: 150px; object-fit: cover;"
+                                        class="rounded border"
+                                    />
+                                    <small class="d-block text-muted mt-1">Current image (upload a new one to replace)</small>
+                                </div>
+                            @endif
+                        </div>
                         {{-- Amount --}}
                         <div class="col-md-6">
                             <label class="form-label" for="amount">

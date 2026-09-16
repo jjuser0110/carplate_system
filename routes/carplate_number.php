@@ -8,6 +8,6 @@ Route::prefix('/carplate-number')->as('carplate_number.')->middleware(['auth'])-
     Route::get('/create', 'CarplateNumberController@create')->name('create');
     Route::post('/store', 'CarplateNumberController@store')->name('store');
     Route::get('/edit/{carplate_number}', 'CarplateNumberController@edit')->name('edit');
-    Route::post('/update/{carplate_number}', 'CarplateNumberController@update')->name('update');
+    Route::put('/update/{carplate_number}', 'CarplateNumberController@update')->name('update'); 
     Route::get('/destroy/{carplate_number}', 'CarplateNumberController@destroy')->name('destroy');
 });

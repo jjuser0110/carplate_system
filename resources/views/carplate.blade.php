@@ -712,7 +712,9 @@ async function loadCarplates() {
         id: carplate.id,
         number: carplate.plate,
         price: Number(carplate.amount) || 0,
-        tags: [...new Set(tags)]
+        image: carplate.image || null,
+        tags: [...new Set(tags)],
+        category: carplate.category || null
       };
     });
 
@@ -930,7 +932,7 @@ const I18N = {
     hero_subtitle:"Search any car plate / plate no — VIP, repeating-digit and lucky number plates in Malaysia. Message us on WhatsApp in one click.",
     hero_search_placeholder:"e.g. ABC 1234",
     hero_search_btn:"Search",
-    filter_all:"All", filter_popular:"Popular", filter_repeating:"Repeating Digits", filter_vip:"VIP / Low Number", filter_budget:"Under RM5,000",
+    filter_all:"All", filter_popular:"Popular", filter_repeating:"Repeating", filter_vip:"VIP", filter_budget:"Under RM5,000",
     results_eyebrow:"Available Now", results_title:"Car Plate Search Results",
     results_count:(n)=> n + (n===1 ? " plate found" : " plates found"),
     results_empty:"No plates match your search. Try another number or WhatsApp us — we may have it in our private list.",
@@ -1044,11 +1046,12 @@ function tagHtml(tag){
   return `<span class="${cls}"><i class="bi ${meta.icon}"></i>${label}</span>`;
 }
 
-function carVisualHtml(number){
+function carVisualHtml(number, imageUrl){
   const safeNum = escapeXml(number);
   const jsSafeNum = number.replace(/\\/g,"\\\\").replace(/'/g,"\\'");
+  const src = imageUrl || CONFIG.carPlatePhoto;
   return `
-    <img src="${CONFIG.carPlatePhoto}" alt="Car plate ${safeNum}" class="car-photo"
+    <img src="${src}" alt="Car plate ${safeNum}" class="car-photo"
          onerror="this.parentElement.innerHTML = carFrontSVG('${jsSafeNum}')">
     <div class="plate-overlay-text" style="font-size:${plateFontSize(number)}px">${safeNum}</div>`;
 }
@@ -1093,7 +1096,7 @@ function renderPlates(list){
     col.className = "col-6 col-md-4 col-lg-3";
     col.innerHTML = `
       <div class="plate-card">
-        <div class="car-plate-visual">${carVisualHtml(p.number)}</div>
+        <div class="car-plate-visual">${carVisualHtml(p.number, p.image)}</div>
         <div class="plate-tags">${p.tags.map(tagHtml).join("")}</div>
         <div class="plate-price"><span class="rm">RM</span>${p.price.toLocaleString()}</div>
         <a class="btn-enquire" href="${waLinkForPlate(p.number)}" target="_blank" rel="noopener">
@@ -1155,21 +1158,28 @@ function renderPagination(totalItems, totalPages){
 }
 
 function currentFilter() {
-  const activeFilter = document.querySelector('#filterChips .chip.active');
 
-  if (activeFilter) {
-    return activeFilter.dataset.filter || 'all';
-  }
+// Tag / budget filter
+const activeFilter = document.querySelector(
+  '#filterChips .chip.active[data-filter]'
+);
 
-  const activeCategory = document.querySelector('#categoryChips .chip.active');
+if (activeFilter) {
+  return activeFilter.dataset.filter || 'all';
+}
 
-  if (activeCategory) {
-    return activeCategory.dataset.category === 'all'
-      ? 'all'
-      : `category-${activeCategory.dataset.category}`;
-  }
+// Category filter
+const activeCategory = document.querySelector(
+  '#categoryChips .chip.active[data-category]'
+);
 
-  return 'all';
+if (activeCategory) {
+  return activeCategory.dataset.category === 'all'
+    ? 'all'
+    : `category-${activeCategory.dataset.category}`;
+}
+
+return 'all';
 }
 
 function applySearchAndFilter() {

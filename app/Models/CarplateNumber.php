@@ -18,6 +18,7 @@ class CarplateNumber extends Model
         'category_id',
         'amount',
         'is_active',
+        'image',
     ];
 
     public function category()

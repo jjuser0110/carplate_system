@@ -21,7 +21,7 @@ class CarplateNumberController extends Controller
                     'id' => $carplate->id,
                     'plate' => $carplate->plate,
                     'amount' => (float) $carplate->amount,
-
+                    'image' => $carplate->image ? asset('storage/' . $carplate->image) : null,
                     'category' => $carplate->category ? [
                         'id' => $carplate->category->id,
                         'name' => $carplate->category->category_name,

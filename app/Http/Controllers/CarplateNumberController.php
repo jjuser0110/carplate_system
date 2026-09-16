@@ -41,21 +41,63 @@ class CarplateNumberController extends Controller
             'amount' => 'required|numeric',
             'tag_ids' => 'nullable|array',
             'tag_ids.*' => 'exists:tags,id',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
-
+    
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('carplate_numbers', 'public');
+        }
+    
         $carplateNumber = CarplateNumber::create([
             'plate' => $request->plate,
             'category_id' => $request->category_id,
             'amount' => $request->amount,
+            'image' => $imagePath,
             'is_active' => $request->is_active ?? 1,
         ]);
-
-        // Save selected tags into carplate_tag pivot table
+    
         $carplateNumber->tags()->sync($request->tag_ids ?? []);
-
+    
         return redirect()
             ->route('carplate_number.index')
             ->withSuccess('Data saved');
+    }
+    
+    public function update(Request $request, CarplateNumber $carplate_number)
+    {
+        $request->validate([
+            'plate' => 'required|string|max:255',
+            'category_id' => 'nullable|exists:categories,id',
+            'amount' => 'required|numeric',
+            'tag_ids' => 'nullable|array',
+            'tag_ids.*' => 'exists:tags,id',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+        ]);
+    
+        $imagePath = $carplate_number->image;
+    
+        if ($request->hasFile('image')) {
+            // delete old image if it exists
+            if ($imagePath && \Storage::disk('public')->exists($imagePath)) {
+                \Storage::disk('public')->delete($imagePath);
+            }
+            $imagePath = $request->file('image')->store('carplate_numbers', 'public');
+        }
+    
+        $carplate_number->update([
+            'plate' => $request->plate,
+            'category_id' => $request->category_id,
+            'amount' => $request->amount,
+            'image' => $imagePath,
+            'is_active' => $request->is_active ?? 1,
+        ]);
+    
+        $carplate_number->tags()->sync($request->tag_ids ?? []);
+    
+        return redirect()
+            ->route('carplate_number.index')
+            ->withSuccess('Data updated');
     }
 
     public function edit(CarplateNumber $carplate_number)
@@ -75,31 +117,6 @@ class CarplateNumberController extends Controller
             ->with('carplateNumber', $carplate_number)
             ->with('categories', $categories)
             ->with('tags', $tags);
-    }
-
-    public function update(Request $request, CarplateNumber $carplate_number)
-    {
-        $request->validate([
-            'plate' => 'required|string|max:255',
-            'category_id' => 'nullable|exists:categories,id',
-            'amount' => 'required|numeric',
-            'tag_ids' => 'nullable|array',
-            'tag_ids.*' => 'exists:tags,id',
-        ]);
-
-        $carplate_number->update([
-            'plate' => $request->plate,
-            'category_id' => $request->category_id,
-            'amount' => $request->amount,
-            'is_active' => $request->is_active ?? 1,
-        ]);
-
-        // Replace existing tags with selected tags
-        $carplate_number->tags()->sync($request->tag_ids ?? []);
-
-        return redirect()
-            ->route('carplate_number.index')
-            ->withSuccess('Data updated');
     }
 
     public function destroy(CarplateNumber $carplate_number)
