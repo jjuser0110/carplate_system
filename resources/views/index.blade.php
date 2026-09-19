@@ -179,7 +179,7 @@ a{text-decoration:none;}
 /* ---------- plate cards ---------- */
 .plate-card{
   background:#fff;border:1px solid #ecebe6;border-radius:16px;
-  padding:1.1rem;height:100%;min-height:352px;
+  padding:1.1rem;height:100%;            
   display:flex;flex-direction:column;gap:.7rem;
   position:relative;overflow:hidden;
   transition:.2s;
@@ -227,7 +227,10 @@ a{text-decoration:none;}
 }
 .tag.tag-vip{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:var(--black);border-color:transparent;}
 
-.plate-price{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.2rem;color:var(--gold-dark);}
+.plate-price{
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:1.2rem;color:var(--gold-dark);
+  text-align:center;                      /* added */
+}
 .plate-price .rm{font-size:.72rem;color:#a99a6b;font-weight:600;margin-right:.2rem;}
 
 .btn-enquire{
