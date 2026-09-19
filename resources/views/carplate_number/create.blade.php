@@ -118,7 +118,7 @@
                                 Hold Ctrl (Windows) or Command (Mac) to select multiple tags.
                             </small>
                         </div>
-                        {{-- Image --}}
+                        <!-- {{-- Image --}}
                         <div class="col-md-6">
                             <label class="form-label" for="image">
                                 Car Image
@@ -143,7 +143,7 @@
                                     <small class="d-block text-muted mt-1">Current image (upload a new one to replace)</small>
                                 </div>
                             @endif
-                        </div>
+                        </div> -->
                         {{-- Amount --}}
                         <div class="col-md-6">
                             <label class="form-label" for="amount">

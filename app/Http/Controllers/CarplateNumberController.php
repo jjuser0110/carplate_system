@@ -41,19 +41,19 @@ class CarplateNumberController extends Controller
             'amount' => 'required|numeric',
             'tag_ids' => 'nullable|array',
             'tag_ids.*' => 'exists:tags,id',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            // 'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
     
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('carplate_numbers', 'public');
-        }
+        // $imagePath = null;
+        // if ($request->hasFile('image')) {
+        //     $imagePath = $request->file('image')->store('carplate_numbers', 'public');
+        // }
     
         $carplateNumber = CarplateNumber::create([
             'plate' => $request->plate,
             'category_id' => $request->category_id,
             'amount' => $request->amount,
-            'image' => $imagePath,
+            // 'image' => $imagePath,
             'is_active' => $request->is_active ?? 1,
         ]);
     
@@ -72,24 +72,24 @@ class CarplateNumberController extends Controller
             'amount' => 'required|numeric',
             'tag_ids' => 'nullable|array',
             'tag_ids.*' => 'exists:tags,id',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            // 'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
     
-        $imagePath = $carplate_number->image;
+        // $imagePath = $carplate_number->image;
     
-        if ($request->hasFile('image')) {
-            // delete old image if it exists
-            if ($imagePath && \Storage::disk('public')->exists($imagePath)) {
-                \Storage::disk('public')->delete($imagePath);
-            }
-            $imagePath = $request->file('image')->store('carplate_numbers', 'public');
-        }
+        // if ($request->hasFile('image')) {
+        //     // delete old image if it exists
+        //     if ($imagePath && \Storage::disk('public')->exists($imagePath)) {
+        //         \Storage::disk('public')->delete($imagePath);
+        //     }
+        //     $imagePath = $request->file('image')->store('carplate_numbers', 'public');
+        // }
     
         $carplate_number->update([
             'plate' => $request->plate,
             'category_id' => $request->category_id,
             'amount' => $request->amount,
-            'image' => $imagePath,
+            // 'image' => $imagePath,
             'is_active' => $request->is_active ?? 1,
         ]);
     
