@@ -647,20 +647,6 @@ async function loadCarplates() {
       (carplate.tags || []).forEach(tag => {
         const name = String(tag.name || '').toLowerCase();
 
-        // Supports separate tags and combined tags such as
-        // "Popular + Repeating" from the current backend data.
-        if (name.includes('popular')) {
-          tags.push('popular');
-        }
-
-        if (name.includes('repeat')) {
-          tags.push('repeat');
-        }
-
-        if (name.includes('vip')) {
-          tags.push('vip');
-        }
-
         // Also keep any other backend tag as a usable filter.
         const parts = name.split(/\s*(?:\+|&|,|\/|\|)\s*/);
         parts.forEach(part => {
@@ -668,7 +654,7 @@ async function loadCarplates() {
             .replace(/[^a-z0-9]+/g, '-')
             .replace(/^-+|-+$/g, '');
 
-          if (slug && !['popular', 'repeat', 'repeating', 'vip'].includes(slug)) {
+          if (slug && !['', '', '', ''].includes(slug)) {
             tags.push(slug);
           }
         });
