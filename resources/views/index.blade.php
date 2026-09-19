@@ -3,68 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Car Plate For Sale Malaysia | JS Number Plate Agency – Buy &amp; Sell 车牌</title>
+<title>Car Plate For Sale Malaysia | {{ config('app.name') }} – Buy &amp; Sell 车牌</title>
 <meta name="description" content="Search car plate / carplate number for sale in Malaysia — VIP, repeating digit &amp; lucky plate no. 车牌买卖，直接联系车主. Buy &amp; sell direct owner, WhatsApp us now.">
 <meta name="keywords" content="car plate, carplate, car plate malaysia, number plate, plate no, vip car plate, 车牌, 车牌买卖, 马来西亚车牌, plat nombor, plat nombor malaysia">
 <meta name="robots" content="index, follow">
-<meta name="author" content="JS Number Plate Agency">
-<meta name="geo.region" content="MY-13">
-<meta name="geo.placename" content="Kuching, Sarawak">
+<meta name="author" content="{{ config('app.name') }}">
 
-<!-- REPLACE "jsnumberplate.com/" everywhere below with your real live domain once the site is hosted -->
-<link rel="canonical" href="jsnumberplate.com/">
+<link rel="canonical" href="{{ url('/') }}">
 
 <!-- Open Graph (Facebook / WhatsApp link previews) -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="JS Number Plate Agency">
-<meta property="og:title" content="Car Plate For Sale Malaysia | JS Number Plate Agency">
+<meta property="og:site_name" content="{{ config('app.name') }}">
+<meta property="og:title" content="Car Plate For Sale Malaysia | {{ config('app.name') }}">
 <meta property="og:description" content="Search car plate / carplate number for sale in Malaysia — VIP, repeating digit &amp; lucky plate no. Buy &amp; sell direct owner. 车牌买卖.">
-<meta property="og:url" content="jsnumberplate.com/">
-<meta property="og:image" content="https://jsnumberplate.com/images/JS.png">
+<meta property="og:url" content="{{ url('/') }}">
+<meta property="og:image" content="{{ asset('images/JS.png') }}">
 <meta property="og:locale" content="en_MY">
 <meta property="og:locale:alternate" content="zh_CN">
 <meta property="og:locale:alternate" content="ms_MY">
 
 <!-- Twitter / X card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Car Plate For Sale Malaysia | JS Number Plate Agency">
+<meta name="twitter:title" content="Car Plate For Sale Malaysia | {{ config('app.name') }}">
 <meta name="twitter:description" content="Search car plate / carplate number for sale in Malaysia — VIP, repeating digit &amp; lucky plate no. 车牌买卖.">
-<meta name="twitter:image" content="https://jsnumberplate.com/images/JS.png">
+<meta name="twitter:image" content="{{ asset('images/JS.png') }}">
 <link rel="icon" type="image/png" href="{{ asset('images/logoonly.png') }}">
 
-<!-- Structured data so Google understands this is a real local business -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "AutomotiveBusiness",
-  "name": "JS Number Plate Agency",
-  "alternateName": ["JS车牌代理", "JS Number Plate", "Carplate Malaysia"],
-  "description": "Buy and sell car plate / number plate direct from owner in Malaysia. VIP, repeating digit and lucky number plates.",
-  "url": "jsnumberplate.com/",
-  "telephone": "+60106611166",
-  "priceRange": "RM2,000 - RM50,000",
-  "image": "https://jsnumberplate.com/images/JS.png",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Lot 12, Jalan Padungan",
-    "addressLocality": "Kuching",
-    "addressRegion": "Sarawak",
-    "postalCode": "93100",
-    "addressCountry": "MY"
-  },
-  "areaServed": "MY",
-  "sameAs": [
-    "https://facebook.com/yourpage",
-    "https://instagram.com/yourpage"
-  ],
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-    "opens": "09:30",
-    "closes": "18:30"
-  }
-}
-</script>
+<!-- Structured data (schema.org) — filled in by JS from /api/settings + /api/carplates -->
+<script type="application/ld+json" id="structuredData"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -137,7 +103,7 @@ a{text-decoration:none;}
 @media(max-width:767px){.hero-banner{min-height:400px;}}
 .hero-media{
   position:absolute;inset:0;
-  background:url('images/banner.png') center/cover no-repeat, linear-gradient(135deg, #0b0b0c 0%, #1c1c1c 55%, #0b0b0c 100%);
+  background:url('{{ asset('images/banner.png') }}') center/cover no-repeat, linear-gradient(135deg, #0b0b0c 0%, #1c1c1c 55%, #0b0b0c 100%);
 }
 .hero-media video{width:100%;height:100%;object-fit:cover;display:block;}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.45) 60%, rgba(0,0,0,.88) 100%);}
@@ -323,7 +289,7 @@ a{text-decoration:none;}
 .about-wrap::before{content:"";position:absolute;top:0;left:2.2rem;right:2.2rem;height:3px;background:linear-gradient(90deg,var(--gold-light),var(--gold),var(--gold-dark));border-radius:0 0 4px 4px;}
 .profile-photo-placeholder{
   width:100%;aspect-ratio:1/1;border-radius:16px;
-  background:url('images/office.jpeg') center/cover no-repeat, linear-gradient(135deg, #0b0b0c 0%, #1c1c1c 55%, #0b0b0c 100%);
+  background:url('{{ asset('images/office.jpeg') }}') center/cover no-repeat, linear-gradient(135deg, #0b0b0c 0%, #1c1c1c 55%, #0b0b0c 100%);
   display:flex;align-items:center;justify-content:center;color:rgba(212,175,55,.4);font-size:3rem;
   border:1px solid rgba(212,175,55,.25);
 }
@@ -387,7 +353,7 @@ a{text-decoration:none;}
   <nav class="navbar navbar-expand-lg navbar-dark py-2">
     <div class="container">
       <a class="brand" href="#top">
-        <img src="{{ asset('images/JS.png') }}" height="50">
+        <img src="{{ asset('images/JS.png') }}" height="50" alt="{{ config('app.name') }}">
       </a>
       <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
         <i class="bi bi-list text-white fs-2"></i>
@@ -419,7 +385,7 @@ a{text-decoration:none;}
     <h1 data-i18n="hero_title">Find A Car Plate Number<br>That Speaks For You</h1>
     <div class="direct-owner-badge"><i class="bi bi-patch-check-fill"></i> <span data-i18n="hero_direct_owner">Buy &amp; Sell — Direct Owner</span></div>
     <p class="lead" data-i18n="hero_subtitle">Search any car plate / plate no — VIP, repeating-digit and lucky number plates in Malaysia. Message us on WhatsApp in one click.</p>
-    <p class="visually-hidden">JS Number Plate Agency — carplate, car plate Malaysia, 车牌买卖, plat nombor Malaysia, plate no search.</p>
+    <p class="visually-hidden">{{ config('app.name') }} — carplate, car plate Malaysia, 车牌买卖, plat nombor Malaysia, plate no search.</p>
   </div>
 </section>
 
@@ -498,18 +464,18 @@ a{text-decoration:none;}
         </div>
         <div class="col-md-8">
           <div class="section-eyebrow" data-i18n="about_eyebrow">Your Trusted Dealer</div>
-          <h2 class="section-title"><span data-i18n="about_title">JS CHAN — Owner, JS Number Plate Agency</span></h2>
+          <h2 class="section-title" id="aboutTitle"></h2>
           <p class="text-muted" data-i18n="about_bio">Buy and sell direct from the owner — no middleman. Over the years I've helped car owners across Malaysia find, buy and transfer number plates safely, from simple repeat digits to premium VIP numbers. Every transaction is handled personally, with full JPJ transfer support.</p>
-          <p class="reg-number-light mb-0">SSM Reg. No. 202203177534 (NS0271724-T)</p>
+          <p class="reg-number-light mb-0 d-none" id="aboutSsm"></p>
           <div class="row text-center mt-4 g-2">
-            <div class="col-4">
-              <div class="stat-box"><div class="num">10+</div><div class="lbl" data-i18n="about_years_label">Years Experience</div></div>
+            <div class="col-4 d-none">
+              <div class="stat-box"><div class="num" id="statYears"></div><div class="lbl" data-i18n="about_years_label">Years Experience</div></div>
             </div>
-            <div class="col-4">
-              <div class="stat-box"><div class="num">2,000+</div><div class="lbl" data-i18n="about_plates_sold_label">Plates Sold</div></div>
+            <div class="col-4 d-none">
+              <div class="stat-box"><div class="num" id="statPlates"></div><div class="lbl" data-i18n="about_plates_sold_label">Plates Sold</div></div>
             </div>
-            <div class="col-4">
-              <div class="stat-box"><div class="num">100%</div><div class="lbl" data-i18n="about_experience_label">JPJ Transfer Handled</div></div>
+            <div class="col-4 d-none">
+              <div class="stat-box"><div class="num" id="statJpj"></div><div class="lbl" data-i18n="about_experience_label">JPJ Transfer Handled</div></div>
             </div>
           </div>
         </div>
@@ -552,7 +518,7 @@ a{text-decoration:none;}
             <div class="icon"><i class="bi bi-clock-fill"></i></div>
             <div>
               <h6 data-i18n="contact_hours_label">Business Hours</h6>
-              <p data-i18n="contact_hours_value"></p>
+              <p id="contactHoursText"></p>
             </div>
           </div>
 
@@ -563,9 +529,8 @@ a{text-decoration:none;}
       </div>
       <div class="col-lg-7">
         <div class="map-frame h-100">
-          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            src="https://maps.google.com/maps?q=Jalan%20Padungan%2C%20Kuching%2C%20Sarawak%2C%20Malaysia&t=&z=15&ie=UTF8&iwloc=&output=embed">
-          </iframe>
+          <!-- src is set from the address in /api/settings -->
+          <iframe id="mapFrame" title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </div>
@@ -577,10 +542,10 @@ a{text-decoration:none;}
   <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
     <div>
       <div class="footer-brand">
-        <img src="{{ asset('images/JS.png') }}" width="150">
+        <img src="{{ asset('images/JS.png') }}" width="150" alt="{{ config('app.name') }}">
       </div>
       <p class="mb-0 mt-1" data-i18n="footer_tagline">Buy &amp; sell car number plates, direct from owner.</p>
-      <p class="reg-number mb-0 mt-1">SSM Reg. No. 202203177534 (NS0271724-T)</p>
+      <p class="reg-number mb-0 mt-1 d-none" id="footerSsm"></p>
     </div>
     <div class="d-flex gap-3">
     <a id="footerFacebookLink"
@@ -597,7 +562,7 @@ a{text-decoration:none;}
     </a>
       <a href="#" id="footerWaLink" target="_blank" rel="noopener"><i class="bi bi-whatsapp fs-5"></i></a>
     </div>
-    <div class="small" data-i18n="footer_rights">© 2026 JS Number Plate Agency. All rights reserved.</div>
+    <div class="small" id="footerRights"></div>
   </div>
 </footer>
 
@@ -609,22 +574,28 @@ a{text-decoration:none;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 <script>
 /* =====================================================================
-   CONFIG — edit this block with your real business details
+   CONFIG — non-business constants only.
+   Business details (phone, WhatsApp, address, hours, social links,
+   owner name, SSM no., stats) come from /api/settings.
+   Site name comes from APP_NAME in .env (config('app.name')).
    ===================================================================== */
+const APP_NAME = @json(config('app.name'));
+
 const CONFIG = {
-  whatsappNumber: "60106611166",
-  phoneDisplay: "+60 10-661 1166",
-  address: "Lot 12, Jalan Padungan, 93100 Kuching, Sarawak, Malaysia",
   carPlatePhoto: "{{ asset('images/car-front.png') }}",
+  budgetLimit: 5000,      // "Under RM…" filter threshold
+  countryCode: "MY"       // used in structured data
 };
-let SITE_SETTINGS = {
-  phone: '',
-  whatsapp: '',
-  address: '',
-  business_hours: '',
-  facebook: '',
-  instagram: ''
-};
+
+// Keys read from GET /api/settings  ->  result.data
+const SETTING_KEYS = [
+  'phone', 'whatsapp', 'address', 'business_hours',
+  'facebook', 'instagram',
+  'owner_name', 'ssm_reg_no',
+  'years_experience', 'plates_sold', 'jpj_rate'
+];
+
+let SITE_SETTINGS = Object.fromEntries(SETTING_KEYS.map(k => [k, '']));
 
 async function loadSettings() {
   try {
@@ -637,14 +608,9 @@ async function loadSettings() {
     const result = await response.json();
 
     if (result.success && result.data) {
-      SITE_SETTINGS = {
-        phone: result.data.phone || '',
-        whatsapp: result.data.whatsapp || '',
-        address: result.data.address || '',
-        facebook: result.data.facebook || '',
-        instagram: result.data.instagram || '',
-        business_hours: result.data.business_hours || ''
-      };
+      SITE_SETTINGS = Object.fromEntries(
+        SETTING_KEYS.map(k => [k, result.data[k] ?? ''])
+      );
     }
   } catch (error) {
     console.error('Failed to load settings:', error);
@@ -731,7 +697,7 @@ async function loadCarplates() {
     }
 
     if (count) {
-      count.textContent = 'Unable to load plates';
+      count.textContent = tr('results_error');
     }
   }
 }
@@ -883,7 +849,7 @@ function renderTagFilters() {
   allButton.className = 'chip' + (current === 'all' ? ' active' : '');
   allButton.dataset.filter = 'all';
   allButton.dataset.i18n = 'filter_all';
-  allButton.textContent = I18N[currentLang]?.filter_all || 'All';
+  allButton.textContent = tr('filter_all');
   container.appendChild(allButton);
 
   const added = new Set();
@@ -903,7 +869,7 @@ function renderTagFilters() {
 
       if (meta.key) {
         button.dataset.i18n = meta.key;
-        button.textContent = I18N[currentLang]?.[meta.key] || part;
+        button.textContent = tr(meta.key) || part;
       } else {
         button.textContent = part;
       }
@@ -916,12 +882,14 @@ function renderTagFilters() {
   budgetButton.className = 'chip' + (current === 'budget' ? ' active' : '');
   budgetButton.dataset.filter = 'budget';
   budgetButton.dataset.i18n = 'filter_budget';
-  budgetButton.textContent = I18N[currentLang]?.filter_budget || 'Under RM5,000';
+  budgetButton.textContent = tr('filter_budget');
   container.appendChild(budgetButton);
 }
 
 /* =====================================================================
    TRANSLATIONS
+   Placeholders: {limit} = CONFIG.budgetLimit, {year} = current year,
+   {site} = APP_NAME
    ===================================================================== */
 const I18N = {
   en:{
@@ -932,23 +900,26 @@ const I18N = {
     hero_subtitle:"Search any car plate / plate no — VIP, repeating-digit and lucky number plates in Malaysia. Message us on WhatsApp in one click.",
     hero_search_placeholder:"e.g. ABC 1234",
     hero_search_btn:"Search",
-    filter_all:"All", filter_popular:"Popular", filter_repeating:"Repeating", filter_vip:"VIP", filter_budget:"Under RM5,000",
+    filter_all:"All", filter_popular:"Popular", filter_repeating:"Repeating", filter_vip:"VIP", filter_budget:"Under RM{limit}",
+    filter_all_categories:"All Categories",
     results_eyebrow:"Available Now", results_title:"Car Plate Search Results",
     results_count:(n)=> n + (n===1 ? " plate found" : " plates found"),
     results_empty:"No plates match your search. Try another number or WhatsApp us — we may have it in our private list.",
+    results_error:"Unable to load plates",
     card_enquire:"WhatsApp",
     videos_eyebrow:"From Our Channels", videos_title:"Latest Videos & Car Plate Knowledge",
     videos_subtitle:"Tips on choosing, transferring and renewing your plate — posted regularly on Facebook and Instagram.",
     videos_watch:"Watch on", videos_follow_fb:"Follow on Facebook", videos_follow_ig:"Follow on Instagram",
-    about_eyebrow:"Your Trusted Dealer", about_title:"Your Name — Owner, JS Number Plate Agency",
+    feeds_empty:"No feeds available.",
+    about_eyebrow:"Your Trusted Dealer", about_role:"Owner",
     about_bio:"Buy and sell direct from the owner — no middleman. Over the years I've helped car owners across Malaysia find, buy and transfer number plates safely, from simple repeat digits to premium VIP numbers. Every transaction is handled personally, with full JPJ transfer support.",
     about_years_label:"Years Experience", about_plates_sold_label:"Plates Sold", about_experience_label:"JPJ Transfer Handled",
     contact_eyebrow:"Get In Touch", contact_title:"Contact Us",
     contact_phone_label:"Phone", contact_whatsapp_label:"WhatsApp", contact_address_label:"Address",
-    contact_hours_label:"Business Hours", contact_hours_value:"Mon – Sat, 9.30am – 6.30pm",
+    contact_hours_label:"Business Hours",
     contact_cta:"Chat With Us Now",
-    footer_tagline:"Buy & sell car number plates, direct from owner.", footer_rights:"© 2026 JS Number Plate Agency. All rights reserved.",
-    wa_enquiry_prefix:"I am interested to",
+    footer_tagline:"Buy & sell car number plates, direct from owner.", footer_rights:"© {year} {site}. All rights reserved.",
+    wa_enquiry_prefix:"Hi, I am interested in",
     wa_generic_message:"Hi, I would like to enquire about a car plate number.",
     page_prev:"Prev", page_next:"Next",
   },
@@ -960,22 +931,25 @@ const I18N = {
     hero_subtitle:"搜索车牌号码 / plate no — VIP车牌、重复数字车牌及幸运号码车牌。一键WhatsApp联系我们。",
     hero_search_placeholder:"例如 ABC 1234",
     hero_search_btn:"搜索",
-    filter_all:"全部", filter_popular:"热门", filter_repeating:"重复数字", filter_vip:"VIP / 靓号", filter_budget:"RM5,000以下",
+    filter_all:"全部", filter_popular:"热门", filter_repeating:"重复数字", filter_vip:"VIP / 靓号", filter_budget:"RM{limit}以下",
+    filter_all_categories:"全部分类",
     results_eyebrow:"现有库存", results_title:"车牌搜索结果",
     results_count:(n)=> "找到 " + n + " 个车牌",
     results_empty:"没有符合的车牌。请尝试其他号码，或直接WhatsApp联系我们，我们可能有更多未公开的车牌。",
+    results_error:"无法加载车牌",
     card_enquire:"WhatsApp",
     videos_eyebrow:"社交媒体动态", videos_title:"最新视频与车牌知识",
     videos_subtitle:"关于选号、过户与更新车牌的小知识，定期发布于Facebook与Instagram。",
     videos_watch:"观看于", videos_follow_fb:"关注 Facebook", videos_follow_ig:"关注 Instagram",
-    about_eyebrow:"值得信赖的车牌商", about_title:"[您的姓名] — JS车牌代理 创办人",
+    feeds_empty:"暂无动态。",
+    about_eyebrow:"值得信赖的车牌商", about_role:"创办人",
     about_bio:"车主直接买卖，没有中间人。多年来，我协助全马来西亚的车主安全地寻找、购买及过户车牌——从简单的重复数字到高端VIP靓号。每一笔交易都由我亲自处理，并提供完整的陆路交通局（JPJ）过户服务。",
     about_years_label:"年经验", about_plates_sold_label:"成交车牌数", about_experience_label:"JPJ过户处理率",
     contact_eyebrow:"联系我们", contact_title:"联系方式",
     contact_phone_label:"电话", contact_whatsapp_label:"WhatsApp", contact_address_label:"地址",
-    contact_hours_label:"营业时间", contact_hours_value:"周一至周六，上午9.30 – 下午6.30",
+    contact_hours_label:"营业时间",
     contact_cta:"立即WhatsApp联系",
-    footer_tagline:"车主直接买卖车牌，无中间人。", footer_rights:"© 2026 JS Number Plate Agency. 版权所有。",
+    footer_tagline:"车主直接买卖车牌，无中间人。", footer_rights:"© {year} {site}. 版权所有。",
     wa_enquiry_prefix:"我对以下车牌感兴趣：",
     wa_generic_message:"您好，我想咨询关于车牌号码的事宜。",
     page_prev:"上一页", page_next:"下一页",
@@ -988,29 +962,42 @@ const I18N = {
     hero_subtitle:"Cari plat nombor / plate no — plat VIP, nombor berulang dan nombor bertuah di Malaysia. Hubungi kami terus melalui WhatsApp.",
     hero_search_placeholder:"cth. ABC 1234",
     hero_search_btn:"Cari",
-    filter_all:"Semua", filter_popular:"Popular", filter_repeating:"Nombor Berulang", filter_vip:"VIP / Nombor Rendah", filter_budget:"Bawah RM5,000",
+    filter_all:"Semua", filter_popular:"Popular", filter_repeating:"Nombor Berulang", filter_vip:"VIP / Nombor Rendah", filter_budget:"Bawah RM{limit}",
+    filter_all_categories:"Semua Kategori",
     results_eyebrow:"Tersedia Sekarang", results_title:"Keputusan Carian Plat",
     results_count:(n)=> n + (n===1 ? " plat dijumpai" : " plat dijumpai"),
     results_empty:"Tiada plat sepadan dengan carian anda. Cuba nombor lain atau WhatsApp kami — mungkin kami ada dalam senarai peribadi.",
+    results_error:"Tidak dapat memuatkan plat",
     card_enquire:"WhatsApp",
     videos_eyebrow:"Dari Media Sosial Kami", videos_title:"Video Terkini & Pengetahuan Plat Kereta",
     videos_subtitle:"Tip memilih, memindah milik dan memperbaharui plat anda — dikongsi secara berkala di Facebook dan Instagram.",
     videos_watch:"Tonton di", videos_follow_fb:"Ikuti di Facebook", videos_follow_ig:"Ikuti di Instagram",
-    about_eyebrow:"Peniaga Yang Dipercayai", about_title:"[Nama Anda] — Pemilik, JS Number Plate Agency",
+    feeds_empty:"Tiada suapan tersedia.",
+    about_eyebrow:"Peniaga Yang Dipercayai", about_role:"Pemilik",
     about_bio:"Beli dan jual terus daripada pemilik — tiada orang tengah. Selama bertahun-tahun saya telah membantu pemilik kereta di seluruh Malaysia mencari, membeli dan memindah milik plat nombor dengan selamat — dari nombor berulang mudah hingga nombor VIP premium. Setiap urusan dikendalikan sendiri, dengan sokongan penuh pindah milik JPJ.",
     about_years_label:"Tahun Pengalaman", about_plates_sold_label:"Plat Terjual", about_experience_label:"Pindah Milik JPJ Dikendalikan",
     contact_eyebrow:"Hubungi Kami", contact_title:"Hubungi Kami",
     contact_phone_label:"Telefon", contact_whatsapp_label:"WhatsApp", contact_address_label:"Alamat",
-    contact_hours_label:"Waktu Perniagaan", contact_hours_value:"Isnin – Sabtu, 9.30 pagi – 6.30 petang",
+    contact_hours_label:"Waktu Perniagaan",
     contact_cta:"Chat Dengan Kami Sekarang",
-    footer_tagline:"Beli & jual plat nombor, terus daripada pemilik.", footer_rights:"© 2026 JS Number Plate Agency. Hak cipta terpelihara.",
-    wa_enquiry_prefix:"Saya berminat dengan",
+    footer_tagline:"Beli & jual plat nombor, terus daripada pemilik.", footer_rights:"© {year} {site}. Hak cipta terpelihara.",
+    wa_enquiry_prefix:"Hai, saya berminat dengan",
     wa_generic_message:"Hai, saya ingin bertanya tentang plat nombor kereta.",
     page_prev:"Sebelum", page_next:"Seterus",
   }
 };
 
 let currentLang = "en";
+
+/* translation helper — returns a string and fills {limit} / {year} / {site} */
+function tr(key, lang = currentLang){
+  const value = I18N[lang]?.[key];
+  if(typeof value !== "string") return "";
+  return value
+    .replace("{limit}", () => CONFIG.budgetLimit.toLocaleString())
+    .replace("{year}", () => String(new Date().getFullYear()))
+    .replace("{site}", () => APP_NAME);
+}
 
 /* ---------- render plate grid ---------- */
 function escapeXml(s){
@@ -1025,7 +1012,7 @@ function plateFontSize(number){
 function carFrontSVG(number){
   const fs = plateFontSize(number);
   return `
-  <svg viewBox="0 0 220 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Car plate for sale, plate no ${escapeXml(number)}, JS Number Plate Agency Malaysia">
+  <svg viewBox="0 0 220 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Car plate for sale, plate no ${escapeXml(number)}, ${escapeXml(APP_NAME)}">
     <path d="M18,112 Q18,68 42,52 Q64,36 110,34 Q156,36 178,52 Q202,68 202,112 L202,122 Q202,130 194,130 L168,130 Q160,130 160,122 L160,114 L60,114 L60,122 Q60,130 52,130 L26,130 Q18,130 18,122 Z" fill="#2c2f34" stroke="#101214" stroke-width="2"/>
     <ellipse cx="47" cy="68" rx="15" ry="9" fill="#f5ecc9" opacity=".92"/>
     <ellipse cx="173" cy="68" rx="15" ry="9" fill="#f5ecc9" opacity=".92"/>
@@ -1041,7 +1028,7 @@ function carFrontSVG(number){
 
 function tagHtml(tag){
   const meta = TAG_META[tag] || {icon:"bi-tag", key:null};
-  const label = meta.key ? I18N[currentLang][meta.key] : tag;
+  const label = meta.key ? tr(meta.key) : tag;
   const cls = tag === "vip" ? "tag tag-vip" : "tag";
   return `<span class="${cls}"><i class="bi ${meta.icon}"></i>${label}</span>`;
 }
@@ -1056,7 +1043,7 @@ function carVisualHtml(number, imageUrl){
     <div class="plate-overlay-text" style="font-size:${plateFontSize(number)}px">${safeNum}</div>`;
 }
 function waLinkForPlate(number){
-  const message = `Hi, I am interested in ${number}`;
+  const message = `${tr('wa_enquiry_prefix')} ${number}`;
 
   const whatsappNumber = String(SITE_SETTINGS.whatsapp || '')
     .replace(/^https?:\/\/wa\.me\//i, '')
@@ -1198,7 +1185,7 @@ function applySearchAndFilter() {
   if (filter !== "all" && !filter.startsWith("category-")) {
 
     if (filter === "budget") {
-      list = list.filter(p => Number(p.price) < 5000);
+      list = list.filter(p => Number(p.price) < CONFIG.budgetLimit);
     } else {
       list = list.filter(p => p.tags.includes(filter));
     }
@@ -1242,7 +1229,7 @@ function renderFeeds(){
     grid.innerHTML = `
       <div class="col-12">
         <div class="text-center text-white-50 py-4">
-          No feeds available.
+          ${tr('feeds_empty')}
         </div>
       </div>`;
     return;
@@ -1293,7 +1280,7 @@ function renderCategoryFilters() {
   const allButton = document.createElement('button');
   allButton.className = 'chip' + (current === 'all' ? ' active' : '');
   allButton.dataset.category = 'all';
-  allButton.textContent = 'All Categories';
+  allButton.textContent = tr('filter_all_categories');
 
   container.appendChild(allButton);
 
@@ -1317,8 +1304,8 @@ function applyLanguage(lang){
 
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     const key = el.getAttribute("data-i18n");
-    if(I18N[lang][key] !== undefined && typeof I18N[lang][key] === "string"){
-      el.innerHTML = I18N[lang][key];
+    if(typeof I18N[lang][key] === "string"){
+      el.innerHTML = tr(key, lang);
     }
   });
   document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
@@ -1331,9 +1318,70 @@ function applyLanguage(lang){
   });
 
   renderTagFilters();
+  renderCategoryFilters();
   applySearchAndFilter();
   renderFeeds();
   updateContactAndFloatLinks();
+}
+
+/* ---------- small helpers for settings-driven content ---------- */
+function setStat(id, value){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const v = String(value ?? '').trim();
+  el.textContent = v;
+  const col = el.closest('.col-4');
+  if(col) col.classList.toggle('d-none', !v);
+}
+
+function setRegNo(){
+  const v = String(SITE_SETTINGS.ssm_reg_no || '').trim();
+  ['aboutSsm', 'footerSsm'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.textContent = v ? `SSM Reg. No. ${v}` : '';
+    el.classList.toggle('d-none', !v);
+  });
+}
+
+/* ---------- structured data (schema.org), built from live data ---------- */
+function updateStructuredData(){
+  const el = document.getElementById('structuredData');
+  if(!el) return;
+
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "AutomotiveBusiness",
+    "name": APP_NAME,
+    "description": document.querySelector('meta[name="description"]')?.content || '',
+    "url": location.origin + '/',
+    "image": document.querySelector('meta[property="og:image"]')?.content || '',
+    "areaServed": CONFIG.countryCode
+  };
+
+  if(SITE_SETTINGS.phone){
+    data.telephone = SITE_SETTINGS.phone;
+  }
+
+  if(SITE_SETTINGS.address){
+    data.address = {
+      "@type": "PostalAddress",
+      "streetAddress": SITE_SETTINGS.address,
+      "addressCountry": CONFIG.countryCode
+    };
+  }
+
+  const sameAs = [SITE_SETTINGS.facebook, SITE_SETTINGS.instagram].filter(Boolean);
+  if(sameAs.length){
+    data.sameAs = sameAs;
+  }
+
+  const prices = PLATES.map(p => p.price).filter(p => p > 0);
+  if(prices.length){
+    data.priceRange = `RM${Math.min(...prices).toLocaleString('en-US')} - RM${Math.max(...prices).toLocaleString('en-US')}`;
+  }
+
+  el.textContent = JSON.stringify(data);
 }
 
 /* ---------- contact + floating whatsapp links ---------- */
@@ -1348,11 +1396,12 @@ function updateContactAndFloatLinks(){
   const waLink = whatsappNumber
     ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(genericMsg)}`
     : '#';
-    const businessHours = document.querySelector('[data-i18n="contact_hours_value"]');
 
-    if (businessHours) {
-      businessHours.textContent = SITE_SETTINGS.business_hours || '';
-    }
+  const businessHours = document.getElementById("contactHoursText");
+  if (businessHours) {
+    businessHours.textContent = SITE_SETTINGS.business_hours || '';
+  }
+
   document.getElementById("waFloat").href = waLink;
   document.getElementById("footerWaLink").href = waLink;
   document.getElementById("contactWaLink").href = waLink;
@@ -1368,6 +1417,18 @@ function updateContactAndFloatLinks(){
   // Address
   document.getElementById("contactAddressText").textContent =
     SITE_SETTINGS.address || '';
+
+  // Map (only reload the iframe when the address actually changes)
+  const mapFrame = document.getElementById("mapFrame");
+  if (mapFrame && SITE_SETTINGS.address) {
+    const mapSrc = "https://maps.google.com/maps?q="
+      + encodeURIComponent(SITE_SETTINGS.address)
+      + "&z=15&output=embed";
+
+    if (mapFrame.getAttribute("src") !== mapSrc) {
+      mapFrame.setAttribute("src", mapSrc);
+    }
+  }
 
   // Facebook
   const facebookLink = SITE_SETTINGS.facebook || '#';
@@ -1397,6 +1458,27 @@ function updateContactAndFloatLinks(){
 
   if (footerInstagram) {
     footerInstagram.href = instagramLink;
+  }
+
+  // About / owner
+  const aboutTitle = document.getElementById("aboutTitle");
+  if (aboutTitle) {
+    const ownerLine = [SITE_SETTINGS.owner_name, tr('about_role')]
+      .filter(Boolean)
+      .join(' — ');
+
+    aboutTitle.textContent = [ownerLine, APP_NAME].filter(Boolean).join(', ');
+  }
+
+  setStat("statYears", SITE_SETTINGS.years_experience);
+  setStat("statPlates", SITE_SETTINGS.plates_sold);
+  setStat("statJpj", SITE_SETTINGS.jpj_rate);
+  setRegNo();
+
+  // Footer copyright
+  const footerRights = document.getElementById("footerRights");
+  if (footerRights) {
+    footerRights.textContent = tr('footer_rights');
   }
 }
 
@@ -1436,6 +1518,7 @@ async function initializePage(){
   await loadFeeds();
 
   applyLanguage(currentLang);
+  updateStructuredData();
 }
 
 initializePage();
