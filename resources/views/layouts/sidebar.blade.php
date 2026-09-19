@@ -6,7 +6,7 @@ $currentRoute = request()->route()->getName();
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo" >
         <a href="{{ route('home') }}" class="app-brand-link">
-            <img src="{{ asset('assets/logo_horizontal.png') }}" alt="Logo" width="120">
+            <img src="{{ asset('assets/JS.png') }}" alt="Logo" width="120">
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -52,7 +52,7 @@ $currentRoute = request()->route()->getName();
         </li>
     </ul>
     <div class="p-3 mt-auto border-top">
-        <a class="btn btn-outline-secondary btn-sm w-100" href="{{ url('/carplate') }}" target="_blank"><i class="bx bx-link-external me-1"></i> View live site</a>
+        <a class="btn btn-outline-secondary btn-sm w-100" href="{{ url('/') }}" target="_blank"><i class="bx bx-link-external me-1"></i> View live site</a>
     </div>
 </aside>
 <!-- end: sidebar -->

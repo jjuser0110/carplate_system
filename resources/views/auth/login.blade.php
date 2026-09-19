@@ -18,7 +18,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/logo.jpeg') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/JS.png') }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -68,7 +68,7 @@
               <!-- Logo -->
               <div class="app-brand justify-content-center">
                 <a href="{{route('home')}}" class="app-brand-link gap-2">
-                  <img src="{{ asset('assets/logo_horizontal.png') }}" alt="Logo" style="width:80%; display:block; margin:0 auto;" />
+                  <img src="{{ asset('assets/JS.png') }}" alt="Logo" style="width:80%; display:block; margin:0 auto;" />
                 </a>
               </div>
               <!-- /Logo -->

@@ -20,7 +20,7 @@
 <meta property="og:title" content="Car Plate For Sale Malaysia | JS Number Plate Agency">
 <meta property="og:description" content="Search car plate / carplate number for sale in Malaysia — VIP, repeating digit &amp; lucky plate no. Buy &amp; sell direct owner. 车牌买卖.">
 <meta property="og:url" content="jsnumberplate.com/">
-<meta property="og:image" content="https://jsnumberplate.com/images/logosmall.png">
+<meta property="og:image" content="https://jsnumberplate.com/images/JS.png">
 <meta property="og:locale" content="en_MY">
 <meta property="og:locale:alternate" content="zh_CN">
 <meta property="og:locale:alternate" content="ms_MY">
@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Car Plate For Sale Malaysia | JS Number Plate Agency">
 <meta name="twitter:description" content="Search car plate / carplate number for sale in Malaysia — VIP, repeating digit &amp; lucky plate no. 车牌买卖.">
-<meta name="twitter:image" content="https://jsnumberplate.com/images/logosmall.png">
+<meta name="twitter:image" content="https://jsnumberplate.com/images/JS.png">
 <link rel="icon" type="image/png" href="{{ asset('images/logoonly.png') }}">
 
 <!-- Structured data so Google understands this is a real local business -->
@@ -43,7 +43,7 @@
   "url": "jsnumberplate.com/",
   "telephone": "+60106611166",
   "priceRange": "RM2,000 - RM50,000",
-  "image": "https://jsnumberplate.com/images/logosmall.png",
+  "image": "https://jsnumberplate.com/images/JS.png",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Lot 12, Jalan Padungan",
@@ -387,7 +387,7 @@ a{text-decoration:none;}
   <nav class="navbar navbar-expand-lg navbar-dark py-2">
     <div class="container">
       <a class="brand" href="#top">
-        <img src="{{ asset('images/logosmall.png') }}" height="50">
+        <img src="{{ asset('images/JS.png') }}" height="50">
       </a>
       <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
         <i class="bi bi-list text-white fs-2"></i>
@@ -577,7 +577,7 @@ a{text-decoration:none;}
   <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
     <div>
       <div class="footer-brand">
-        <img src="{{ asset('images/logosmall.png') }}" width="150">
+        <img src="{{ asset('images/JS.png') }}" width="150">
       </div>
       <p class="mb-0 mt-1" data-i18n="footer_tagline">Buy &amp; sell car number plates, direct from owner.</p>
       <p class="reg-number mb-0 mt-1">SSM Reg. No. 202203177534 (NS0271724-T)</p>
