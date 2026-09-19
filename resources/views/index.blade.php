@@ -1024,12 +1024,13 @@ function tagHtml(tag){
 
 function carVisualHtml(number, imageUrl){
   const safeNum = escapeXml(number);
-  const jsSafeNum = number.replace(/\\/g,"\\\\").replace(/'/g,"\\'");
   const src = imageUrl || CONFIG.carPlatePhoto;
+
   return `
-    <img src="${src}" alt="Car plate ${safeNum}" class="car-photo"
-         onerror="this.parentElement.innerHTML = carFrontSVG('${jsSafeNum}')">
-    <div class="plate-overlay-text" style="font-size:${plateFontSize(number)}px">${safeNum}</div>`;
+    <img src="${src}" alt="Car plate ${safeNum}" class="car-photo">
+    <div class="plate-overlay-text" style="font-size:${plateFontSize(number)}px">
+      ${safeNum}
+    </div>`;
 }
 function waLinkForPlate(number){
   const message = `${tr('wa_enquiry_prefix')} ${number}`;
