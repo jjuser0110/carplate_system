@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PosController;
-
+require __DIR__ . '/banner.php';
 /*
 |--------------------------------------------------------------------------
 | Web Routes

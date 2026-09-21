@@ -380,14 +380,43 @@ a{text-decoration:none;}
 <div class="gold-divider"></div>
 
 <!-- ================= HERO (video / image only) ================= -->
+@php
+  $banner = \App\Models\Banner::where('is_active', 1)->orderBy('arrangement')->first();
+  $bannerUrl = $banner?->url;
+@endphp
+
 <section class="hero-banner" id="top">
-  <div class="hero-media"></div>
+  @if ($bannerUrl && $banner->media_type === 'video')
+    <div class="hero-media">
+      <video src="{{ $bannerUrl }}" poster="{{ asset('images/banner.png') }}"
+             autoplay muted loop playsinline preload="auto"></video>
+    </div>
+  @elseif ($bannerUrl)
+    <div class="hero-media"
+         style="background-image:url('{{ $bannerUrl }}'), linear-gradient(135deg,#0b0b0c 0%,#1c1c1c 55%,#0b0b0c 100%);"></div>
+  @else
+    <div class="hero-media"></div>
+  @endif
+
   <div class="hero-overlay"></div>
+
   <div class="container hero-content">
     <div class="hero-eyebrow" data-i18n="hero_eyebrow">Malaysia's Car Plate Specialist</div>
-    <h1 data-i18n="hero_title">Find A Car Plate Number<br>That Speaks For You</h1>
+
+    @if ($banner && $banner->title)
+      <h1>{{ $banner->title }}</h1>
+    @else
+      <h1 data-i18n="hero_title">Find A Car Plate Number<br>That Speaks For You</h1>
+    @endif
+
     <div class="direct-owner-badge"><i class="bi bi-patch-check-fill"></i> <span data-i18n="hero_direct_owner">Buy &amp; Sell — Direct Owner</span></div>
-    <p class="lead" data-i18n="hero_subtitle">Search any car plate / plate no — VIP, repeating-digit and lucky number plates in Malaysia. Message us on WhatsApp in one click.</p>
+
+    @if ($banner && $banner->description)
+      <p class="lead">{{ $banner->description }}</p>
+    @else
+      <p class="lead" data-i18n="hero_subtitle">Search any car plate / plate no — VIP, repeating-digit and lucky number plates in Malaysia. Message us on WhatsApp in one click.</p>
+    @endif
+
     <p class="visually-hidden">{{ config('app.name') }} — carplate, car plate Malaysia, 车牌买卖, plat nombor Malaysia, plate no search.</p>
   </div>
 </section>

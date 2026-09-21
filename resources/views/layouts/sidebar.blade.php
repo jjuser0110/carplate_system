@@ -44,6 +44,12 @@ $currentRoute = request()->route()->getName();
                 <div>Tag</div>
             </a>
         </li>
+        <li class="menu-item {{ Str::contains($currentRoute, 'banner.index') ? 'active' : ''}}">
+            <a href="{{ route('banner.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
+                <div>Banner</div>
+            </a>
+        </li>
         <li class="menu-item {{ Str::contains($currentRoute, 'master_setting.index') ? 'active' : ''}}">
             <a href="{{ route('master_setting.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
